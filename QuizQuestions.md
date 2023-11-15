@@ -34,7 +34,7 @@
   
 **Answer: B (George Town, Penang)**
 
-**What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
+**5.What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
 
 - A) Little India
 - B) Kampong Glam
@@ -44,7 +44,7 @@
 **Answer: C (Chinatown)**
 
   
-**3. What is the national flower of Malaysia?**
+**6. What is the national flower of Malaysia?**
 
 - a. Hibiscus
 - b. Rose
@@ -54,7 +54,7 @@
 **Answer : A Hibiscus**
 
 
-**4. What is the traditional dance form of Malaysia?**
+**7. What is the traditional dance form of Malaysia?**
 
 - a. Silat
 - b. Zapin
@@ -65,7 +65,7 @@
 **Answer : C Joget**
 
 
-**5. What is the primary language spoken in Malaysia?**
+**8. What is the primary language spoken in Malaysia?**
 
 - a. Malay
 - b. English
@@ -74,7 +74,7 @@
 
 **Answer : C Malay**
 
-**6. Which Malaysian festival is celebrated to mark the end of the fasting month of Ramadan?**
+**9. Which Malaysian festival is celebrated to mark the end of the fasting month of Ramadan?**
 
 - a. Diwali
 - b. Eid al-Fitr
@@ -84,7 +84,7 @@
 **Answer : B Eid al-Fitr**
 
 
-**7. What is the official religion of Singapore?**
+**10. What is the official religion of Singapore?**
 
 - a. Buddhism
 - b. Islam
@@ -94,7 +94,7 @@
 **Answer : A Buddhism**
 
 
-**8. What is the traditional Thai New Year celebration called?**
+**11. What is the traditional Thai New Year celebration called?**
 
 - a. Loi Krathong
 - b. Songkran
@@ -103,7 +103,7 @@
 
 **Answer : B Songkran**
 
-**9. Which historical figure is known as the Father of Independence in Malaysia?**
+**12. Which historical figure is known as the Father of Independence in Malaysia?**
 
 - a. Tun Razak
 - b. Tunku Abdul Rahman
@@ -113,7 +113,7 @@
 **Answer : B Tunku Abdul Rahman**
 
 
-**10. Which iconic dish of Singapore consists of rice vermicelli noodles in a spicy coconut milk soup?**
+**13. Which iconic dish of Singapore consists of rice vermicelli noodles in a spicy coconut milk soup?**
 - a. Hainanese Chicken Rice
 - b. Bak Kut Teh
 - c. Laksa
@@ -122,10 +122,18 @@
 **Answer : C Laksa**
 
 
-**11. What is the national sport of Malaysia?**
+**14. What is the national sport of Malaysia?**
 - a. Football (Soccer)
 - b. Badminton
 - c. Sepak Takraw
-- d. Squash**
+- d. Squash
 
 **Answer : C Sepak Takraw**
+
+**15. What is the traditional Malay attire often worn on formal occasions?**
+- A. Kimono
+- B. Sarong
+- C. Hanbok
+- D. Kebaya
+  
+**Answer: D (Kebaya)**
