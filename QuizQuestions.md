@@ -138,7 +138,7 @@
   
 **Answer: D (Kebaya)**
 
-**Which river is a historic and cultural landmark in the heart of Kuala Lumpur, Malaysia's capital?**
+**16. Which river is a historic and cultural landmark in the heart of Kuala Lumpur, Malaysia's capital?**
 
 - A) Mekong River
 - B) Ganges River
@@ -147,9 +147,7 @@
 
 **Answer: D (Klang River)**
 
----
-
-**In which year did Singapore gain independence?**
+**17. In which year did Singapore gain independence?**
 
 - A) 1959
 - B) 1965
@@ -158,9 +156,7 @@
 
 **Answer: B (1965)**
 
----
-
-**What is the official name of the currency used in Malaysia?**
+**18. What is the official name of the currency used in Malaysia?**
 
 - A) Baht
 - B) Ringgit
