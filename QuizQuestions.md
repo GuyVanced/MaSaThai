@@ -30,7 +30,7 @@
   
 **Answer: B (George Town, Penang)**
 
-**What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
+**5.What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
 - A) Little India
 - B) Kampong Glam
 - C) Chinatown
@@ -38,8 +38,14 @@
 
 **Answer: C (Chinatown)**
 
+**6.What is the traditional Malay attire often worn on formal occasions?**
+- A) Kimono
+- B) Sarong
+- C) Hanbok
+- D) Kebaya
+**Answer: D (Kebaya)**
   
-**3. What is the national flower of Malaysia?**
+**7. What is the national flower of Malaysia?**
 - a. Hibiscus
 - b. Rose
 - c. Lotus
@@ -48,7 +54,7 @@
 **Answer : A Hibiscus**
 
 
-**4. What is the traditional dance form of Malaysia?**
+**8. What is the traditional dance form of Malaysia?**
 - a. Silat
 - b. Zapin
 - c. Joget
@@ -58,7 +64,7 @@
 **Answer : C Joget**
 
 
-**5. What is the primary language spoken in Malaysia?**
+**9. What is the primary language spoken in Malaysia?**
 - a. Malay
 - b. English
 - c. Mandarin
@@ -66,10 +72,11 @@
 
 **Answer : C Malay**
 
-**6. Which Malaysian festival is celebrated to mark the end of the fasting month of Ramadan?**
+**10. Which Malaysian festival is celebrated to mark the end of the fasting month of Ramadan?**
 - a. Diwali
 - b. Eid al-Fitr
 - c. Chinese New Year
 - d. Thaipusam
 
 **Answer : B Eid al-Fitr**
+
