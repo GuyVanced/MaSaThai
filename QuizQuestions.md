@@ -30,13 +30,28 @@
   
 **Answer: B (George Town, Penang)**
 
-**What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
+**5. What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
 - A) Little India
 - B) Kampong Glam
 - C) Chinatown
 - D) Orchard Road
 
 **Answer: C (Chinatown)**
+
+**6. The official religion of Malaysia is Islam. What is the predominant religion in Thailand?**
+- A) Hinduism
+- B) Buddhism
+- C)Christianity
+- D) Confucianism
+**Answer: B (Buddhism)**
+
+**7. Which mountain range forms a natural border between Thailand and Myanmar?**
+- A) Himalayas
+- B) Alps
+- C) Andes
+- D) Shan Hills
+**Answer: D (Shan Hills)**
+  
 
   
   
