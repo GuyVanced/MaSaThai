@@ -14,6 +14,30 @@
   
 **Answer : C (Singapore City)**
 
+**3. In which city are the Petronas Towers, the tallest twin towers in the world, located?**
+- A) Kuala Lumpur
+- B) Jakarta
+- C) Manila
+- D) Bangkok
+  
+**Answer: A (Kuala Lumpur )**
+
+**4.Which of the following is one of Malaysia's UNESCO World Heritage Sites?**
+- A) Langkawi
+- B) George Town, Penang
+- C) Tioman Island
+- D) Redang Island
+  
+**Answer: B (George Town, Penang)**
+
+**What is the name of the historic district in Singapore known for its colorful and culturally rich shophouses?**
+- A) Little India
+- B) Kampong Glam
+- C) Chinatown
+- D) Orchard Road
+
+**Answer: C (Chinatown)**
+
   
 **3. What is the national flower of Malaysia?**
 - a. Hibiscus
