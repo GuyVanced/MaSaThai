@@ -31,9 +31,13 @@ The Automated Citizenship Assessment System for Masathai is a JavaFX project des
 - Use this feature to enhance your understanding of your host country's history and culture.
 
 #System Requirements
+
+
 - The Citizenship Assessment System is a web-based platform, so all you need is a modern web browser to access it.
 - Make sure your browser is up to date for the best experience.
 
 #Support
+
+
 - If you encounter any issues, have questions, or need assistance, please contact our support team at manoj2211167@iimscollege.edu.np . We are here to help you make the most of your learning experience.
 - Thank you for choosing the Citizenship Assessment System. We hope you find this platform helpful in your journey to become a well-informed and engaged citizen of your host country. Enjoy your assessments and learning!
