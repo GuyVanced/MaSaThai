@@ -1,0 +1,9 @@
+#centerPane {
+-fx-background-color : rgba(10,100,255,0.9);
+-fx-margin : 10px;
+}
+
+#bgImage {
+-fx-fit-height : 100%;
+-fx-fit-width : 100%;
+}

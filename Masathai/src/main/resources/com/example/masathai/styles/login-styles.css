@@ -1,26 +1,21 @@
-.root {
-    -fx-background-image: url("background.jpg")
+#leftPane{
+-fx-background-color : rgba(10,150,255,0.90);
 
 }
 
-#welcome-text {
-    -fx-font-size: 36px;
-    -fx-font-family: "Arial Black";
-    -fx-fill: #818181;
-    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+#rightPane{
+-fx-background-color : rgba(255,255,254,0.90);
 }
-#actiontarget {
-    -fx-fill: FIREBRICK;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+
+#imageView {
+-fx-
 }
-.button {
-    -fx-text-fill: white;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-weight: bold;
-    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+
+#loginButton {
+-fx-background-color : rgba(50,255,255);
+-fx-background-radius : 15px;
+-fx-text-fill : black;
+-fx-font-size : 25px;
+-fx-font-family : "Tw Cen MT Condensed Extra Bold";
 }
-.button:hover {
-    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
-}
+
