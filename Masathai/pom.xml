@@ -19,6 +19,13 @@
       <artifactId>javafx-controls</artifactId>
       <version>20-ea+4</version>
     </dependency>
+
+    <dependency>
+      <groupId>de.jensd</groupId>
+      <artifactId>fontawesomefx-fontawesome</artifactId>
+      <version>4.7.0-9.1.2</version>
+    </dependency>
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
@@ -72,7 +79,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.example.masathai/com.example.masathai.HelloApplication</mainClass>
+              <mainClass>com.example.masathai/com.example.masathai.QuizApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

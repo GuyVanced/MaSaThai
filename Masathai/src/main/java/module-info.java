@@ -5,7 +5,9 @@ module com.example.masathai {
 
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
-            
+    requires java.sql;
+
+
     opens com.example.masathai to javafx.fxml;
     exports com.example.masathai;
     exports com.example.masathai.Controllers;
