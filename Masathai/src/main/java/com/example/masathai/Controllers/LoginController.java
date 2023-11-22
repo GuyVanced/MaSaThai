@@ -33,7 +33,7 @@ public class LoginController {
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
 
-        String checkLogin= "SELECT COUNT(0) FROM Candidates WHERE  Email = '" +  email  +"' AND  Password = '" + password + "'";
+        String checkLogin= "SELECT COUNT(0) FROM Candidates WHERE  BINARY Email = '" +  email  +"' AND  BINARY Password = '" + password + "'";
 
         try {
             Statement statement = connection.createStatement();
