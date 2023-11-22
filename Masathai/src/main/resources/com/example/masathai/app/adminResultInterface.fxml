@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="your.package.AdminResultController">
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+            <Label text="Result Interface">
+                <font>
+                    <Font name="Arial" size="24.0" />
+                </font>
+                <padding>
+                    <Insets bottom="10.0" />
+                </padding>
+            </Label>
+            <ComboBox fx:id="candidateDropdown" promptText="Choose Candidate">
+                <VBox.margin>
+                    <Insets bottom="20.0" />
+                </VBox.margin>
+            </ComboBox>
+            <Label text="Percentage of Correct Answers:" textFill="#f80303">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font></Label>
+            <TextField fx:id="percentageTextField" editable="false" styleClass="result-textfield" />
+            <Label text="Candidate's Answers vs Correct Answers:" textFill="#da0e0e">
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
+            <TextArea fx:id="answersTextArea" editable="false" prefHeight="150.0" prefWidth="300.0" styleClass="result-textarea" />
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <Button fx:id="backButton" mnemonicParsing="false" styleClass="action-button" text="Back">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font></Button>
+            <Button fx:id="logoutButton" mnemonicParsing="false" styleClass="action-button" text="Logout">
+                <font>
+                    <Font size="14.0" />
+                </font></Button>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+</BorderPane>
