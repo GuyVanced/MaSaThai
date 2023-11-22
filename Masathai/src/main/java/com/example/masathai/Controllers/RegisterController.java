@@ -1,4 +1,4 @@
-package main.java.com.example.masathai.Controllers;
+package com.example.masathai.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,24 +45,34 @@ public class RegisterController implements Initializable {
     private DatePicker dobPicker;
 
     @FXML
-    private ComboBox<String> nationalityComboBox;
+    private ComboBox<String> nationalityCombobox;
 
     @FXML
-    private ComboBox<String> genderComboBox;
+    private ComboBox<String> genderCombobox;
 
     @FXML
-    private CheckBox agreeCheckBox;
+    private CheckBox agreementBox;
 
     @FXML
     private Button registerButton;
 
     @FXML
-    private Button loginButton;
+    private Hyperlink loginLink;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeGender();
+        initializeNationality();
         registerButton.setOnAction(this::registerButtonClicked);
-        loginButton.setOnAction(this::switchToLoginPage);
+        loginLink.setOnAction(this::switchToLoginPage);
+    }
+
+    public void initializeNationality(){
+        nationalityCombobox.getItems().addAll("Singapore", "Malaysia", "Thailand");
+    }
+
+    public void initializeGender(){
+        genderCombobox.getItems().addAll("Male", "Female", "Others");
     }
 
     private void registerButtonClicked(ActionEvent event) {
@@ -74,9 +84,9 @@ public class RegisterController implements Initializable {
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
         String dob = dobPicker.getValue() != null ? dobPicker.getValue().toString() : "";
-        String nationality = nationalityComboBox.getValue();
-        String gender = genderComboBox.getValue();
-        boolean agreeToTerms = agreeCheckBox.isSelected();
+        String nationality = nationalityCombobox.getValue();
+        String gender = genderCombobox.getValue();
+        boolean agreeToTerms = agreementBox.isSelected();
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || passport.isEmpty() ||
                 password.isEmpty() || confirmPassword.isEmpty() || dob.isEmpty() ||
@@ -91,7 +101,7 @@ public class RegisterController implements Initializable {
         }
 
         boolean registrationSuccessful = saveToDatabase(firstName, middleName, lastName, email,
-                passport, password, dob, nationality, gender, agreeToTerms);
+                passport, password, dob, nationality, gender);
 
         if (registrationSuccessful) {
             switchToLoginPage(event);
@@ -102,7 +112,7 @@ public class RegisterController implements Initializable {
 
     private void switchToLoginPage(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userLogin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/userLogin.fxml"));
             Parent loginParent = loader.load();
             Scene loginScene = new Scene(loginParent);
 
@@ -120,14 +130,14 @@ public class RegisterController implements Initializable {
 
     private boolean saveToDatabase(String firstName, String middleName, String lastName,
                                    String email, String passport, String password, String dob,
-                                   String nationality, String gender, boolean agreeToTerms) {
-        String url = "jdbc:mysql://localhost:3306/javafx";
+                                   String nationality, String gender) {
+        String url = "jdbc:mysql://localhost:3306/civikquiz";
         String username = "root";
-        String dbPassword = "sailendra011";
+        String dbPassword = "root";
 
         try (Connection connection = DriverManager.getConnection(url, username, dbPassword)) {
-            String sql = "INSERT INTO users (first_name, middle_name, last_name, email, passport, password, dob, nationality, gender, agree_to_terms) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO candidates (first_name, middle_name, last_name, email, passport, password, dob, nationality, gender) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, firstName);
                 statement.setString(2, middleName);
@@ -138,7 +148,7 @@ public class RegisterController implements Initializable {
                 statement.setString(7, dob);
                 statement.setString(8, nationality);
                 statement.setString(9, gender);
-                statement.setBoolean(10, agreeToTerms);
+
 
                 int rowsAffected = statement.executeUpdate();
 
