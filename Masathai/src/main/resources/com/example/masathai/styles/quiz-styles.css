@@ -1,11 +1,34 @@
-#previousButton{
--fx-border-radius : 20px;
--fx-padding : 10px 40px;
--fx-background-color : red;
 
+
+#centerBox {
+-fx-border-color : black;
+-fx-border-width : 5px;
+-fx-border-style : solid;
 }
 
-#nextButton{
--fx-padding : 10px 20px;
--fx-border-radius : 5px;
+.choice_Box {
+-fx-background-color : #2196F3;
+}
+
+#submitButton {
+-fx-background-color : lightgreen;
+
+-fx-background-radius : 10em;
+}
+
+#nextButton {
+-fx-background-radius : 0px 40em 40em 0px;
+}
+
+#previousButton {
+-fx-background-radius : 100em 0 0 100em;
+}
+
+#questionBox {
+-fx-background-color : #2196F3;
+-fx-background-radius : 0 0em 2em 2em;
+}
+
+#questionLabel {
+-fx-padding : 5px 10px 5px 10px;
 }

@@ -114,7 +114,7 @@ public class RegisterController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/userLogin.fxml"));
             Parent loginParent = loader.load();
-            Scene loginScene = new Scene(loginParent);
+            Scene loginScene = new Scene(loginParent,762,550);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
