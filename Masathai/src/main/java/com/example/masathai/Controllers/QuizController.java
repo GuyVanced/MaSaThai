@@ -50,7 +50,7 @@ public class QuizController   {
     private int totalQuestions = 15;
     private int points =0;
     private boolean correctAnswerPicked = false;
-    boolean deductedPoint;
+    boolean deductedPoint = false;
 
 
 
@@ -201,10 +201,13 @@ public class QuizController   {
         }
 
         // If the answer is correct and the question has not been answered before
-        if ((isCorrect && !alreadyAnswered && !alreadyReceivedPoint) || (isCorrect &&  deductedPoint)) {
+        if (isCorrect &&  !alreadyReceivedPoint) {
             // Award 1 point and update the total points count
             points++;
+        } else if (isCorrect && deductedPoint) {
+            points++;
             deductedPoint = false;
+
         }
 
         // Update the selected choices map with the current choice
@@ -214,6 +217,7 @@ public class QuizController   {
         correctAnswerPicked = isCorrect;
 
         System.out.println("Current Points: " + points);
+        System.out.println("Selected Options " + selectedChoicesMap);
 
     }
 
