@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="762.0" stylesheets="@../styles/login-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.LoginController">
    <children>
       <Pane fx:id="leftPane" prefHeight="550.0" prefWidth="391.0">
@@ -66,7 +65,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="signUpLink" layoutX="236.0" layoutY="453.0" text="Sign up" underline="true">
+            <Hyperlink fx:id="signUpLink" layoutX="236.0" layoutY="453.0" onAction="#switchToSignupPage" text="Sign up" underline="true">
                <font>
                   <Font name="Webdings" size="15.0" />
                </font>

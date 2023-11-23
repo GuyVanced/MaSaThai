@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="517.0" prefWidth="747.0" style="-fx-background-color: white; -fx-background-radius: 32px; -fx-border-radius: 32px;   fx:controller="com.example.masathai.Controllers.candidateResult" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="517.0" prefWidth="747.0" style="-fx-background-color: white; -fx-background-radius: 32px; -fx-border-radius: 32px;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.example.masathai.Controllers.candidateResult" >
     <children>
         <Label layoutX= "264.0" layoutY="36.0" prefHeight="44.0" prefWidth="298.0" text=" Quiz Result" textFill="#bf5252">
             <font>
