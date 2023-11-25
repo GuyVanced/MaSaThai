@@ -1,0 +1,16 @@
+QuestionNo,SelectedAnswer
+1,D. Kuala Lumpur Tower
+2,A. Joget
+3,D. English
+4,A. Fish
+5,B. Bangkok
+6,A. Loy Krathong
+7,B. Nasi Lemak
+8,B. Treaty of Unity
+9,A. Symbol of strength and protection
+10,C. Singapore River
+11,B. Sundarbans
+12,C. Khon
+13,B. September 16
+14,B. Loy Krathong
+15,D. Zapin

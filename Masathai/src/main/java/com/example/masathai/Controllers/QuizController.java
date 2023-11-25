@@ -6,14 +6,21 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class QuizController   {
+public class QuizController {
 
     @FXML
     private Label nameLabel;
@@ -41,6 +48,10 @@ public class QuizController   {
     private ImageView flagImageView;
     @FXML
     private Label qNoLabel;
+    @FXML
+
+    private Scene currentScene;
+
 
     private int currentQuestionNumber = 1;
     private Map<Integer, String> selectedChoicesMap = new HashMap<>();
@@ -48,30 +59,31 @@ public class QuizController   {
     private String correctChoice;
     private Timeline timer;
     private int totalQuestions = 15;
-    private int points =0;
+    private int points = 0;
     private boolean correctAnswerPicked = false;
     boolean deductedPoint = false;
 
-
-
-
+    private Candidate candidate;
 
 
     public void initialize(String email) {
+        currentScene = nameLabel.getScene();
+
         try (Connection connection = DbConnection.getConnection()) {
             // Fetch candidate details from the database
-            Candidate candidate = fetchCandidateDetails(email);
+
+            candidate = fetchCandidateDetails(email);
 
             // Display candidate details
             nameLabel.setText("Name: " + candidate.getFullName());
             genderLabel.setText("Gender: " + candidate.getGender());
 
-            switch(candidate.getNationality()){
+            switch (candidate.getNationality()) {
 
                 case "Malaysia":
                     flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\malayisan_flag.png";
                     break;
-                case "Singapore" :
+                case "Singapore":
                     flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\singapore_flag.png";
                     break;
                 case "Thailand":
@@ -87,7 +99,6 @@ public class QuizController   {
             e.printStackTrace();
         }
     }
-
 
 
     private Candidate fetchCandidateDetails(String email) throws SQLException {
@@ -144,7 +155,6 @@ public class QuizController   {
                         correctChoice = resultSet.getString("CorrectChoice");
 
 
-
                     }
                 }
             }
@@ -181,6 +191,7 @@ public class QuizController   {
         choice3Button.setStyle("");
         choice4Button.setStyle("");
     }
+
     private void evaluateAnswer(String selectedChoice) {
         boolean isCorrect = selectedChoice.trim().endsWith(correctChoice);
 
@@ -201,7 +212,7 @@ public class QuizController   {
         }
 
         // If the answer is correct and the question has not been answered before
-        if (isCorrect &&  !alreadyReceivedPoint) {
+        if (isCorrect && !alreadyReceivedPoint) {
             // Award 1 point and update the total points count
             points++;
         } else if (isCorrect && deductedPoint) {
@@ -222,8 +233,6 @@ public class QuizController   {
     }
 
 
-
-
     public void nextQuestion(ActionEvent event) {
 
         if (currentQuestionNumber < totalQuestions) {
@@ -238,6 +247,7 @@ public class QuizController   {
             loadQuestion(currentQuestionNumber);
         }
     }
+
 
     private String concatenateNames(String firstName, String middleName, String lastName) {
         // Implement your logic for concatenation (you can adjust this based on your requirements)
@@ -254,7 +264,32 @@ public class QuizController   {
         return fullNameBuilder.toString().trim();  // Trim to remove trailing spaces
     }
 
+    @FXML
+    private void onSubmitButtonClicked(ActionEvent Event) {
+        String fileName = "C_" + String.valueOf(candidate.getC_id()) + "result.txt";
 
+        changeToResultScene(fileName);
+    }
 
+    @FXML
+    private void changeToResultScene(String fileName) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/candidateResult.fxml"));
+            Parent resultParent = loader.load();
 
+            // Access the controller and pass data to the initialize method
+            ResultController resultController = loader.getController();
+            resultController.initialize(fileName, selectedChoicesMap, points, totalQuestions);
+
+            // Get the current stage from any node in the current scene
+            Stage currentStage = (Stage) nameLabel.getScene().getWindow();
+
+            // Set the new scene on the stage
+            Scene resultScene = new Scene(resultParent);
+            currentStage.setScene(resultScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

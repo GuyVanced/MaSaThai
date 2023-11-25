@@ -100,10 +100,10 @@ public class LoginController {
     private void switchToQuizPage(ActionEvent event) {
         try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/quizApp.fxml"));
-        Parent registerParent = loader.load();
+        Parent quizParent = loader.load();
         QuizController quizController = (QuizController) loader.getController();
         quizController.initialize(email);
-        Scene registerScene = new Scene(registerParent,664, 470);
+        Scene registerScene = new Scene(quizParent,664, 470);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

@@ -1,5 +1,4 @@
 
-
 #centerBox {
 -fx-border-color : black;
 -fx-border-width : 5px;
@@ -7,7 +6,12 @@
 }
 
 .choice_Box {
+-fx-min-width: 120;
+-fx-pref-width: -1;
 -fx-background-color : #2196F3;
+-fx-background-radius : 20px;
+-fx-max-width: 1000;
+
 }
 
 #submitButton {

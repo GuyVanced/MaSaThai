@@ -39,7 +39,7 @@
                   <String fx:value="prev-next-btn" />
                   <String fx:value="previousButton" />
                </styleClass></Button>
-            <Button fx:id="submitButton" layoutX="521.0" layoutY="16.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="106.0" text="Submit">
+            <Button fx:id="submitButton" layoutX="521.0" layoutY="16.0" mnemonicParsing="false" onAction="#onSubmitButtonClicked" prefHeight="43.0" prefWidth="106.0" text="Submit">
                <styleClass>
                   <String fx:value="prev-next-btn" />
                   <String fx:value="next-btn" />
@@ -55,9 +55,9 @@
                <font>
                   <Font name="Copperplate Gothic Bold" size="15.0" />
                </font></Label>
-            <Button fx:id="choice1Button" layoutX="110.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" prefWidth="118.0" styleClass="choice_Box" text="Button" />
-            <Button fx:id="choice4Button" layoutX="417.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" prefWidth="118.0" styleClass="choice_Box" text="Button" />
-            <Button fx:id="choice3Button" layoutX="110.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" prefWidth="118.0" styleClass="choice_Box" text="Button" />
+            <Button fx:id="choice1Button" layoutX="110.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
+            <Button fx:id="choice4Button" layoutX="417.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
+            <Button fx:id="choice3Button" layoutX="110.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
             <Button fx:id="choice2Button" layoutX="417.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
             <HBox fx:id="questionBox" layoutX="3.0" layoutY="5.0" prefHeight="69.0" prefWidth="657.0">
                <children>

@@ -16,7 +16,7 @@ public class QuizApplication extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 920, 670);
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Welcome");
         stage.setScene(scene);
         stage.show();
     }

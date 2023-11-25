@@ -1,0 +1,11 @@
+.options {
+-fx-background-color : #2196F3;
+-fx-background-radius : 10px;
+-fx-font-size : 20px;
+
+
+}
+
+#exitButton {
+-fx-background-radius : 15px;
+}
