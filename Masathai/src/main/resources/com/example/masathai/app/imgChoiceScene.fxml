@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="664.0" stylesheets="@../styles/quiz-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.QuizController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="664.0" stylesheets="@../styles/quiz-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.QuizController">
    <top>
       <Pane prefHeight="94.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,21 +24,23 @@
    <bottom>
       <Pane prefHeight="70.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
-
             <Button fx:id="nextButton" layoutX="350.0" layoutY="19.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="37.0" prefWidth="99.0" text="Next">
-            <styleClass>
-               <String fx:value="prev-next-btn" />
-               <String fx:value="next-btn" />
-            </styleClass></Button>
+               <styleClass>
+                  <String fx:value="prev-next-btn" />
+                  <String fx:value="next-btn" />
+               </styleClass>
+            </Button>
             <Label fx:id="qNoLabel" layoutX="36.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="148.0">
                <font>
                   <Font size="14.0" />
-               </font></Label>
+               </font>
+            </Label>
             <Button fx:id="previousButton" layoutX="225.0" layoutY="19.0" mnemonicParsing="false" onAction="#previousQuestion" prefHeight="37.0" prefWidth="106.0" text="Previous">
                <styleClass>
                   <String fx:value="prev-next-btn" />
                   <String fx:value="previousButton" />
-               </styleClass></Button>
+               </styleClass>
+            </Button>
             <Button fx:id="submitButton" layoutX="521.0" layoutY="16.0" mnemonicParsing="false" onAction="#onSubmitButtonClicked" prefHeight="43.0" prefWidth="106.0" text="Submit">
                <styleClass>
                   <String fx:value="prev-next-btn" />
@@ -54,20 +56,18 @@
             <Label layoutX="238.0" layoutY="85.0" prefHeight="27.0" prefWidth="165.0" text="Choose an answer">
                <font>
                   <Font name="Copperplate Gothic Bold" size="15.0" />
-               </font></Label>
-            <Button fx:id="choice1Button" layoutX="110.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
-            <Button fx:id="choice4Button" layoutX="417.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
-            <Button fx:id="choice3Button" layoutX="110.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
-            <Button fx:id="choice2Button" layoutX="417.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleChoiceSelection" prefHeight="50.0" styleClass="choice_Box" text="Button" />
+               </font>
+            </Label>
             <HBox fx:id="questionBox" layoutX="3.0" layoutY="5.0" prefHeight="69.0" prefWidth="657.0">
                <children>
-                  <Label fx:id="questionLabel" prefHeight="70.0" prefWidth="664.0" text="Question" textFill="WHITE">
+                  <Label fx:id="questionLabel" prefHeight="70.0" prefWidth="664.0" text="Which " textFill="WHITE">
                      <font>
                         <Font name="Rockwell" size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
+            <ImageView fitHeight="110.0" fitWidth="157.0" layoutX="109.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </center>

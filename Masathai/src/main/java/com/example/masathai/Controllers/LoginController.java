@@ -38,11 +38,8 @@ public class LoginController {
         email = emailField.getText();
         password = passwordField.getText();
         if(checkLogin()){
-            switchToQuizPage(event);
+            switchToDashboard(event);
         };
-
-
-
 
     }
 
@@ -97,26 +94,26 @@ public class LoginController {
     }
 
     @FXML
-    private void switchToQuizPage(ActionEvent event) {
+    private void switchToDashboard(ActionEvent event) {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/quizApp.fxml"));
-        Parent quizParent = loader.load();
-        QuizController quizController = (QuizController) loader.getController();
-        quizController.initialize(email);
-        Scene registerScene = new Scene(quizParent,664, 470);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/dashboard.fxml"));
+        Parent dashboardParent = loader.load();
+        DashboardController dashboardController = (DashboardController) loader.getController();
+        dashboardController.initialize(email);
+        Scene dashboardScene = new Scene(dashboardParent,664, 470);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 
-        window.setScene(registerScene);
-        window.setTitle("Register");
+        window.setScene(dashboardScene);
+        window.setTitle("Dashboard");
 
         window.show();
 
 
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
-            showAlert("Error", "Failed to switch to quiz page");
+            showAlert("Error", "Failed to switch to dashboard page");
         }
     }
 

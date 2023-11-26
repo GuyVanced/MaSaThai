@@ -5,6 +5,7 @@ import com.example.masathai.Candidate;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -49,8 +50,8 @@ public class QuizController {
     @FXML
     private Label qNoLabel;
     @FXML
-
     private Scene currentScene;
+
 
 
     private int currentQuestionNumber = 1;
@@ -64,67 +65,86 @@ public class QuizController {
     boolean deductedPoint = false;
 
     private Candidate candidate;
+    private int c_id;
+    private String fullName;
+    private String nationality;
+    private String gender;
+    private Timeline timeline;
+    private String email;
 
 
-    public void initialize(String email) {
+    private int minutes = 5;
+    private int seconds = 0;
+
+
+    public void initialize(int c_id,String email, String fullName, String nationality, String gender) {
+        this.c_id = c_id;
+        this.email = email;
+        this.fullName = fullName;
+        this.nationality = nationality;
+        this.gender = gender;
         currentScene = nameLabel.getScene();
+        setLabels(fullName,nationality,gender);
+        loadQuestion(currentQuestionNumber);
+        startCountdownTimer();
 
-        try (Connection connection = DbConnection.getConnection()) {
-            // Fetch candidate details from the database
 
-            candidate = fetchCandidateDetails(email);
-
-            // Display candidate details
-            nameLabel.setText("Name: " + candidate.getFullName());
-            genderLabel.setText("Gender: " + candidate.getGender());
-
-            switch (candidate.getNationality()) {
-
-                case "Malaysia":
-                    flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\malayisan_flag.png";
-                    break;
-                case "Singapore":
-                    flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\singapore_flag.png";
-                    break;
-                case "Thailand":
-                    flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\thailand_flag.png";
-                    break;
-            }
-
-            Image flagImage = new Image(flagPath);
-            flagImageView.setImage(flagImage);
-            // Load and display the first question
-            loadQuestion(currentQuestionNumber);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
-
-    private Candidate fetchCandidateDetails(String email) throws SQLException {
-        // Perform database query to fetch candidate details based on the email
-        // Example query: SELECT * FROM Candidates WHERE Email = ?
-        // Execute the query using PreparedStatement
-        try (Connection connection = DbConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Candidates WHERE Email = ?")) {
-            preparedStatement.setString(1, email);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    String firstName = resultSet.getString("First_Name");
-                    String middleName = resultSet.getString("Middle_Name");
-                    String lastName = resultSet.getString("Last_Name");
-                    String gender = resultSet.getString("gender");
-                    String fullName = concatenateNames(firstName, middleName, lastName);
-                    String nationality = resultSet.getString("Nationality");
-
-                    // Create and return a Candidate object with fetched details
-                    return new Candidate(fullName, gender, nationality);
-
+    private void startCountdownTimer() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                updateTimerLabel();
+                if (minutes == 0 && seconds == 0) {
+                    timeline.stop();
+                    changeToResultScene();
                 }
             }
-        }
-        throw new SQLException("Candidate not found with email: " + email);
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
+
+    private void updateTimerLabel() {
+        String formattedTime = String.format("%d:%02d", minutes, seconds);
+        timerLabel.setText(formattedTime);
+
+        if (seconds == 0) {
+            if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            }
+        } else {
+            seconds--;
+        }
+    }
+
+
+
+    private void setLabels( String fullName, String nationality, String gender){
+        nameLabel.setText("Name: " +fullName);
+        genderLabel.setText("Gender: " + gender);
+
+        switch (nationality) {
+
+            case "Malaysia":
+                flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\malaysian_flag.png";
+                break;
+            case "Singapore":
+                flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\singapore_flag.png";
+                break;
+            case "Thailand":
+                flagPath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\img\\thailand_flag.png";
+                break;
+        }
+
+        Image flagImage = new Image(flagPath);
+        flagImageView.setImage(flagImage);
+    }
+
+
+
 
     private void loadQuestion(int questionNumber) {
         qNoLabel.setText("Question " + questionNumber + " of " + totalQuestions);
@@ -169,7 +189,7 @@ public class QuizController {
         // This method is assumed to be linked to the action of a button representing a choice
 
         Button selectedChoiceButton = (Button) event.getSource();
-        String selectedChoice = selectedChoiceButton.getText();  // Extracting the choice label (A, B, C, D)
+        String selectedChoice = selectedChoiceButton.getText();
 
 
         resetChoiceButtonBackgrounds();
@@ -249,37 +269,28 @@ public class QuizController {
     }
 
 
-    private String concatenateNames(String firstName, String middleName, String lastName) {
-        // Implement your logic for concatenation (you can adjust this based on your requirements)
-        StringBuilder fullNameBuilder = new StringBuilder();
-        if (firstName != null && !firstName.isEmpty()) {
-            fullNameBuilder.append(firstName).append(" ");
-        }
-        if (middleName != null && !middleName.isEmpty()) {
-            fullNameBuilder.append(middleName).append(" ");
-        }
-        if (lastName != null && !lastName.isEmpty()) {
-            fullNameBuilder.append(lastName);
-        }
-        return fullNameBuilder.toString().trim();  // Trim to remove trailing spaces
-    }
+
+
+
 
     @FXML
-    private void onSubmitButtonClicked(ActionEvent Event) {
-        String fileName = "C_" + String.valueOf(candidate.getC_id()) + "result.txt";
+    private void onSubmitButtonClicked(ActionEvent event){
+        changeToResultScene();
 
-        changeToResultScene(fileName);
     }
 
+
     @FXML
-    private void changeToResultScene(String fileName) {
+    private void changeToResultScene() {
         try {
+            String fileName = "C_" + String.valueOf(c_id) + "result.txt";
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/candidateResult.fxml"));
             Parent resultParent = loader.load();
 
             // Access the controller and pass data to the initialize method
             ResultController resultController = loader.getController();
-            resultController.initialize(fileName, selectedChoicesMap, points, totalQuestions);
+            resultController.initialize(c_id,email, fileName, selectedChoicesMap, points);
 
             // Get the current stage from any node in the current scene
             Stage currentStage = (Stage) nameLabel.getScene().getWindow();

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -13,22 +14,22 @@
                 <Font name="Arial Black" size="27.0" />
             </font>
         </Label>
-        <Label fx:id="remarksLabel" layoutX="79.0" layoutY="412.0" prefHeight="74.0" prefWidth="574.0" text="Remarks" wrapText="true">
+        <Label fx:id="remarksLabel" layoutX="34.0" layoutY="423.0" prefHeight="74.0" prefWidth="528.0" text="Remarks" wrapText="true">
             <font>
                 <Font name="Open Sans Semibold" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="correctAnswersLabel" layoutX="69.0" layoutY="297.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #EF7448; -fx-background-radius: 10px; -fx-padding: 0px 10px;" text="Correct Answers = 18">
+        <Label fx:id="correctAnswersLabel" layoutX="42.0" layoutY="297.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #EF7448; -fx-background-radius: 10px; -fx-padding: 0px 10px;" text="Correct Answers = 18">
             <font>
                 <Font size="21.0" />
             </font>
         </Label>
-        <Label fx:id="incorrectAnswersLabel" layoutX="66.0" layoutY="350.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #EDA32D; -fx-background-radius: 10px; -fx-padding: 0 10px;" text="Incorrect Answers = 2">
+        <Label fx:id="incorrectAnswersLabel" layoutX="39.0" layoutY="350.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #EDA32D; -fx-background-radius: 10px; -fx-padding: 0 10px;" text="Incorrect Answers = 2">
             <font>
                 <Font size="21.0" />
             </font>
         </Label>
-      <Label fx:id="marksLabel" layoutX="269.0" layoutY="200.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: lightblue; -fx-background-radius: 10px;">
+      <Label fx:id="marksLabel" layoutX="242.0" layoutY="200.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: lightblue; -fx-background-radius: 10px;">
          <padding>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>
@@ -36,20 +37,20 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="207.0" prefHeight="26.0" prefWidth="200.0" text="Marks Obtained : ">
+      <Label layoutX="39.0" layoutY="207.0" prefHeight="26.0" prefWidth="200.0" text="Marks Obtained : ">
          <font>
             <Font name="Gill Sans Ultra Bold" size="18.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="382.0" layoutY="107.0" prefHeight="304.0" prefWidth="350.0" />
-      <Label layoutX="69.0" layoutY="126.0" prefHeight="33.0" prefWidth="200.0" text="Result : ">
+      <PieChart fx:id="pieChart" layoutX="351.0" layoutY="88.0" prefHeight="304.0" prefWidth="350.0" />
+      <Label layoutX="42.0" layoutY="126.0" prefHeight="33.0" prefWidth="200.0" text="Result : ">
          <font>
             <Font name="Gill Sans Ultra Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="correctPercentageLabel" layoutX="441.0" layoutY="381.0" prefHeight="18.0" prefWidth="116.0" style="-fx-background-color: lightgreen; -fx-background-radius: 10px; -fx-background-color: #EF7448; -fx-padding: 2PX 10PX;" text="Correct : 90%  " />
-      <Label fx:id="incorrectPercentageLabel" layoutX="567.0" layoutY="381.0" prefHeight="18.0" prefWidth="116.0" style="-fx-background-color: #EDA32D; -fx-background-radius: 10px; -fx-padding: 2px 10px;" text="Incorrect : 10%" />
-      <Label fx:id="resultLabel" layoutX="188.0" layoutY="123.0" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #b4b4b4; -fx-background-radius: 10px; -fx-font-weight: bold;">
+      <Label fx:id="correctPercentageLabel" layoutX="427.0" layoutY="381.0" prefHeight="18.0" prefWidth="116.0" style="-fx-background-color: lightgreen; -fx-background-radius: 10px; -fx-background-color: #EF7448; -fx-padding: 2PX 10PX;" text="Correct : 90%  " />
+      <Label fx:id="incorrectPercentageLabel" layoutX="553.0" layoutY="381.0" prefHeight="18.0" prefWidth="116.0" style="-fx-background-color: #EDA32D; -fx-background-radius: 10px; -fx-padding: 2px 10px;" text="Incorrect : 10%" />
+      <Label fx:id="resultLabel" layoutX="161.0" layoutY="123.0" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #b4b4b4; -fx-background-radius: 10px; -fx-font-weight: bold;">
          <padding>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>
@@ -57,5 +58,6 @@
             <Font name="Gill Sans Ultra Bold" size="22.0" />
          </font>
       </Label>
+      <Button fx:id="homeButton" layoutX="633.0" layoutY="460.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
     </children>
 </AnchorPane>

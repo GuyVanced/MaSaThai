@@ -11,12 +11,14 @@ public class Candidate {
     private String nationality;
     private Date dob;
 
-    public  Candidate(String fullName, String gender, String nationality){
+    public  Candidate(int c_id,String fullName, String gender, String nationality){
         this.fullName = fullName;
         this.gender = gender;
         this.nationality  = nationality;
+        this.c_id = c_id;
 
     }
+
 
     public int getC_id() {
         return c_id;
