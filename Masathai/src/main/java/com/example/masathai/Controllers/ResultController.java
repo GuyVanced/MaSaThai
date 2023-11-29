@@ -45,7 +45,7 @@ public class ResultController {
 
         String email;
         int obtainedMarks;
-        int totalQuestions = 20;
+        int totalQuestions = 22;
         String allresultsFilePath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\results\\" + "allResults.txt";
 
         public void initialize(int c_id,String email,String fileName, Map<Integer, String> selectedChoicesMap, int obtainedMarks){
@@ -105,13 +105,13 @@ public class ResultController {
 
         public void displayAnalysis(int obtainedMarks, String email){
                 this.email = email;
-                marksLabel.setText(String.valueOf(obtainedMarks) + "/15");
+                marksLabel.setText(String.valueOf(obtainedMarks) + "/22");
                 int incorrectAnswers = totalQuestions - obtainedMarks;
 
                 correctAnswersLabel.setText("Correct Answers : " + String.valueOf(obtainedMarks));
                 incorrectAnswersLabel.setText("Incorrect Answers : " + String.valueOf(incorrectAnswers));
 
-                if(obtainedMarks<10){
+                if(obtainedMarks<15){
                         resultLabel.setText("Fail");
                         remarksLabel.setText("Sorry, you were not qualified for the eligibility of the citizenship. Please try again after 15 days.");
                         resultLabel.setStyle("-fx-text-fill: red;");
@@ -125,7 +125,7 @@ public class ResultController {
 
         }public void displayAnalysis(int obtainedMarks){
 
-                marksLabel.setText(String.valueOf(obtainedMarks) + "/15");
+                marksLabel.setText(String.valueOf(obtainedMarks) + "/22");
                 int incorrectAnswers = totalQuestions - obtainedMarks;
 
                 correctAnswersLabel.setText("Correct Answers : " + String.valueOf(obtainedMarks));

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="664.0" stylesheets="@../styles/quiz-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.ImgBasedController">
+   <top>
+      <Pane prefHeight="94.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="timerLabel" layoutX="582.0" layoutY="14.0" prefHeight="28.0" prefWidth="57.0" text="Timer" />
+            <Label fx:id="nameLabel" layoutX="27.0" layoutY="19.0" text="Label" />
+            <Label fx:id="genderLabel" layoutX="27.0" layoutY="42.0" text="Label" />
+            <ImageView fx:id="flagImageView" fitHeight="20.0" fitWidth="27.0" layoutX="82.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="25.0" layoutY="64.0" text="Country :" />
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="70.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="nextButton" layoutX="350.0" layoutY="19.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="99.0" text="Next">
+               <styleClass>
+                  <String fx:value="prev-next-btn" />
+                  <String fx:value="next-btn" />
+               </styleClass>
+            </Button>
+            <Label fx:id="qNoLabel" layoutX="36.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="148.0" text="Question 22 of 22">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="previousButton" layoutX="225.0" layoutY="19.0" mnemonicParsing="false" onAction="#onPreviousButtonClicked" prefHeight="37.0" prefWidth="106.0" text="Previous">
+               <styleClass>
+                  <String fx:value="prev-next-btn" />
+                  <String fx:value="previousButton" />
+               </styleClass>
+            </Button>
+            <Button fx:id="submitButton" layoutX="521.0" layoutY="16.0" mnemonicParsing="false" onAction="#onSubmitButtonClicked" prefHeight="43.0" prefWidth="106.0" text="Submit">
+               <styleClass>
+                  <String fx:value="prev-next-btn" />
+                  <String fx:value="next-btn" />
+               </styleClass>
+            </Button>
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <Pane fx:id="centerBox" prefHeight="315.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="238.0" layoutY="328.0" prefHeight="27.0" prefWidth="165.0" text="Choose an answer">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <HBox fx:id="questionBox" layoutX="3.0" layoutY="5.0" prefHeight="69.0" prefWidth="657.0">
+               <children>
+                  <Label fx:id="questionLabel" prefHeight="70.0" prefWidth="664.0" style="-fx-padding: 5px 10px 5px 10px; -fx-wrap-text: true;" text="22. Point out the UNESCO-listed historical city in Masathai, recognized for its well-preserved architecture, vibrant street art, and rich cultural heritage." textFill="WHITE">
+                     <font>
+                        <Font name="Rockwell" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="229.0" fitWidth="1048.0" layoutX="117.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imageBasedQuestion/georgeTown.png" />
+               </image>
+            </ImageView>
+            <RadioButton fx:id="choiceA" layoutX="117.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleSelection" text="A. Georgetown">
+               <font>
+                  <Font name="MS Outlook" size="21.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="choiceB" layoutX="413.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleSelection" text="B. Yangon">
+               <font>
+                  <Font name="MS Outlook" size="21.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="choiceC" layoutX="117.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleSelection" text="C. Luang Prabang">
+               <font>
+                  <Font name="MS Outlook" size="21.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="choiceD" layoutX="413.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleSelection" text="D. Hoi An">
+               <font>
+                  <Font name="MS Outlook" size="21.0" />
+               </font>
+            </RadioButton>
+
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

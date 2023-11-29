@@ -64,9 +64,7 @@ public class LoginController {
 
                 }
             }
-
         }
-
 
         catch (Exception e){
             e.printStackTrace();
@@ -100,7 +98,7 @@ public class LoginController {
         Parent dashboardParent = loader.load();
         DashboardController dashboardController = (DashboardController) loader.getController();
         dashboardController.initialize(email);
-        Scene dashboardScene = new Scene(dashboardParent,664, 470);
+        Scene dashboardScene = new Scene(dashboardParent,770, 560);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

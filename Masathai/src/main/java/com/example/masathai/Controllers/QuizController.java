@@ -54,12 +54,12 @@ public class QuizController {
 
 
 
-    private int currentQuestionNumber = 1;
+    public int currentQuestionNumber = 1;
     private Map<Integer, String> selectedChoicesMap = new HashMap<>();
     private String flagPath = null;
     private String correctChoice;
     private Timeline timer;
-    private int totalQuestions = 15;
+    private int totalQuestions = 22;
     private int points = 0;
     private boolean correctAnswerPicked = false;
     boolean deductedPoint = false;
@@ -87,7 +87,6 @@ public class QuizController {
         setLabels(fullName,nationality,gender);
         loadQuestion(currentQuestionNumber);
         startCountdownTimer();
-
 
     }
 
@@ -143,50 +142,71 @@ public class QuizController {
         flagImageView.setImage(flagImage);
     }
 
+    private void handleButtonFunction(int questionNumber){
+        if (questionNumber == 22){
+            nextButton.setDisable(true);
+        } else if (questionNumber == 1) {
+            previousButton.setDisable(true);
+        }
+        else{
+            nextButton.setDisable(false);
+            previousButton.setDisable(false);
+        }
+    }
+
 
 
 
     private void loadQuestion(int questionNumber) {
-        qNoLabel.setText("Question " + questionNumber + " of " + totalQuestions);
-        try (Connection connection = DbConnection.getConnection()) {
-            // Fetch question details from the database
-            String query = "SELECT * FROM questions WHERE QuestionNo = ?";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, questionNumber);
+        if(questionNumber == 20){
+            nextButton.setText("Proceed to Image Questions");
+        }
+        if(questionNumber == 21){
+            changeToImageChoiceScene();
 
-                try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        // Update JavaFX components with the question details
-                        String questionText = resultSet.getString("QuestionText");
-                        String choice1 = resultSet.getString("Choice1");
-                        String choice2 = resultSet.getString("Choice2");
-                        String choice3 = resultSet.getString("Choice3");
-                        String choice4 = resultSet.getString("Choice4");
+        }
+        else {
+            qNoLabel.setText("Question " + questionNumber + " of " + totalQuestions);
+            handleButtonFunction(questionNumber);
+            try (Connection connection = DbConnection.getConnection()) {
+                // Fetch question details from the database
+                String query = "SELECT * FROM questions WHERE QuestionNo = ?";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setInt(1, questionNumber);
 
-                        // For simplicity, let's assume choices are labeled A, B, C, D
-                        String formattedQuestion = String.format("%d. %s", questionNumber, questionText);
-                        questionLabel.setText(formattedQuestion);
-                        choice1Button.setText("A. " + choice1);
-                        choice2Button.setText("B. " + choice2);
-                        choice3Button.setText("C. " + choice3);
-                        choice4Button.setText("D. " + choice4);
-
-                        // Store the correct choice for later evaluation
-                        correctChoice = resultSet.getString("CorrectChoice");
+                    try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                        if (resultSet.next()) {
+                            // Update JavaFX components with the question details
+                            String questionText = resultSet.getString("QuestionText");
+                            String choice1 = resultSet.getString("Choice1");
+                            String choice2 = resultSet.getString("Choice2");
+                            String choice3 = resultSet.getString("Choice3");
+                            String choice4 = resultSet.getString("Choice4");
 
 
+                            String formattedQuestion = String.format("%d. %s", questionNumber, questionText);
+                            questionLabel.setText(formattedQuestion);
+                            choice1Button.setText("A. " + choice1);
+                            choice2Button.setText("B. " + choice2);
+                            choice3Button.setText("C. " + choice3);
+                            choice4Button.setText("D. " + choice4);
+
+
+                            correctChoice = resultSet.getString("CorrectChoice");
+
+
+                        }
                     }
                 }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
     @FXML
     private void handleChoiceSelection(ActionEvent event) {
-        // Handle user's choice selection, evaluate correctness, and update points
-        // This method is assumed to be linked to the action of a button representing a choice
+
 
         Button selectedChoiceButton = (Button) event.getSource();
         String selectedChoice = selectedChoiceButton.getText();
@@ -194,13 +214,13 @@ public class QuizController {
 
         resetChoiceButtonBackgrounds();
         highlightChoiceButton(selectedChoiceButton);
-        // Evaluate correctness and update points
+
         evaluateAnswer(selectedChoice);
     }
 
 
     private void highlightChoiceButton(Button selectedChoiceButton) {
-        // Highlight the selected choice with a green background
+
         selectedChoiceButton.setStyle("-fx-background-color: lightgreen;");
     }
 
@@ -215,15 +235,15 @@ public class QuizController {
     private void evaluateAnswer(String selectedChoice) {
         boolean isCorrect = selectedChoice.trim().endsWith(correctChoice);
 
-        // Check if the candidate has already answered this question
+
         boolean alreadyAnswered = selectedChoicesMap.containsKey(currentQuestionNumber);
 
-        // Check if the candidate has already received a point for this question
+
         boolean alreadyReceivedPoint = alreadyAnswered && selectedChoicesMap.get(currentQuestionNumber).endsWith(correctChoice);
 
-        // If the candidate is changing the choice for a previously answered question
+
         if (alreadyReceivedPoint) {
-            // Deduct 1 point only if changing from a correct answer to an incorrect one
+
             if (!isCorrect) {
                 points--;
                 deductedPoint = true;
@@ -231,9 +251,9 @@ public class QuizController {
             }
         }
 
-        // If the answer is correct and the question has not been answered before
+
         if (isCorrect && !alreadyReceivedPoint) {
-            // Award 1 point and update the total points count
+
             points++;
         } else if (isCorrect && deductedPoint) {
             points++;
@@ -241,10 +261,9 @@ public class QuizController {
 
         }
 
-        // Update the selected choices map with the current choice
         selectedChoicesMap.put(currentQuestionNumber, selectedChoice);
 
-        // Set the correctAnswerPicked flag to true if the answer is correct
+
         correctAnswerPicked = isCorrect;
 
         System.out.println("Current Points: " + points);
@@ -267,6 +286,27 @@ public class QuizController {
             loadQuestion(currentQuestionNumber);
         }
     }
+
+    public void changeToImageChoiceScene(){
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/imgChoiceScene.fxml"));
+            Parent resultParent = loader.load();
+
+
+            ImgChoiceController imgChoiceController = loader.getController();
+            imgChoiceController.initialize(c_id,email,fullName,gender,nationality,flagPath,points,selectedChoicesMap);
+
+            Stage currentStage = (Stage) nameLabel.getScene().getWindow();
+
+
+            Scene imgChoiceScene = new Scene(resultParent);
+            currentStage.setScene(imgChoiceScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 

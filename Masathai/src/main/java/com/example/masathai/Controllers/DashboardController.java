@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,16 +31,20 @@ import java.util.Map;
 public class DashboardController {
     @FXML
     private Label titleLabel;
+    @FXML
+    private Label nameLabel, emailLabel, genderLabel, nationalityLabel, dobLabel;
+    @FXML
+    private Button seeAllButton;
 
 
     private Candidate candidate;
     private String filePath;
     private boolean alreadySubmitted = false;
-    String  email, fullName, nationality, gender;
+    String email, fullName, nationality, gender;
     int c_id;
     String resultFilePath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\results\\" + "allResults.txt";
 
-    public void initialize(String email) throws SQLException{
+    public void initialize(String email) throws SQLException {
         this.email = email;
         candidate = fetchCandidateDetails(this.email);
         this.c_id = candidate.getC_id();
@@ -51,47 +56,51 @@ public class DashboardController {
         checkAlreadySubmitted();
     }
 
-    public void checkAlreadySubmitted(){
-        filePath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\results\\individual\\" +"C_" + candidate.getC_id() + "result.txt";
-        if(fileExists(filePath)){
+    public void checkAlreadySubmitted() {
+        filePath = "E:\\Academics\\IIMS\\5th Sem\\Advanced Programming\\Assignment\\Masathai Project\\code\\Masathai\\src\\main\\resources\\com\\example\\masathai\\results\\individual\\" + "C_" + candidate.getC_id() + "result.txt";
+        if (fileExists(filePath)) {
             alreadySubmitted = true;
-        }
-        else{
+        } else {
             alreadySubmitted = false;
         }
 
     }
+
     private boolean fileExists(String filePath) {
 
         return Files.exists(Paths.get(filePath));
     }
 
     @FXML
-    private void onStartButtonClick(ActionEvent event){
-        if(alreadySubmitted){
+    private void onStartButtonClick(ActionEvent event) {
+        if (alreadySubmitted) {
             showErrorAlert("Quiz Already Submitted", "You have already submitted your quiz. Please check your results from the dashboard");
-        }
-        else{
+        } else {
             switchToQuizPage();
         }
     }
 
     @FXML
-    private void onSeeResultButtonClick(ActionEvent event){
-        if(alreadySubmitted){
+    private void onSeeResultButtonClick(ActionEvent event) {
+        if (alreadySubmitted) {
             retrieveResult();
-        }
-        else{
+        } else {
             showErrorAlert("No result found", "Seems like you haven't taken the quiz yet");
         }
     }
 
-    private void retrieveResult(){
+    @FXML
+    private void onSeeAllClicked() {
+        changeToAllResultsScene();
+    }
+
+
+    private void retrieveResult() {
         int obtainedMarks = getObtainedMarks(c_id);
         switchToResultPage(obtainedMarks);
     }
 
-    public  int getObtainedMarks(int c_id) {
+    public int getObtainedMarks(int c_id) {
         Map<Integer, Integer> resultMap = readResultsFromFile();
 
 
@@ -153,6 +162,28 @@ public class DashboardController {
         }
     }
 
+    private void changeToAllResultsScene() {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/masathai/app/allResults.fxml"));
+        Parent resultParent = loader.load();
+
+        // Access the controller and pass data to the initialize method
+        AllResultController allResultController = loader.getController();
+        allResultController.initialize();
+
+        // Get the current stage from any node in the current scene
+        Stage currentStage = (Stage) titleLabel.getScene().getWindow();
+
+        // Set the new scene on the stage
+        Scene allResultScene = new Scene(resultParent);
+        currentStage.setScene(allResultScene);
+    } catch( IOException e)
+    {
+        e.printStackTrace();
+    }
+
+}
+
     private void switchToQuizPage() {
         try {
 
@@ -211,14 +242,24 @@ public class DashboardController {
                     String gender = resultSet.getString("gender");
                     String fullName = concatenateNames(firstName, middleName, lastName);
                     String nationality = resultSet.getString("Nationality");
+                    String dob = resultSet.getString("dob");
 
-                    // Create and return a Candidate object with fetched details
+
+                    setLabels(fullName, email, nationality, gender, dob);
                     return new Candidate(c_id,fullName, gender, nationality);
 
                 }
             }
         }
         throw new SQLException("Candidate not found with email: " + email);
+    }
+
+    private void setLabels(String fullName, String email, String nationality, String gender, String dob){
+        nameLabel.setText("Full Name : " + fullName);
+        emailLabel.setText("Email : " + email);
+        nationalityLabel.setText("Nationality : " + nationality);
+        genderLabel.setText("Gender : " + gender);
+        dobLabel.setText("Date of Birth : " + dob);
     }
 
 

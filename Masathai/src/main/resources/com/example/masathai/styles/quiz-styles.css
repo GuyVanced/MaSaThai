@@ -22,6 +22,7 @@
 
 #nextButton {
 -fx-background-radius : 0px 40em 40em 0px;
+-fx-wrap-text : true;
 }
 
 #previousButton {
@@ -35,4 +36,5 @@
 
 #questionLabel {
 -fx-padding : 5px 10px 5px 10px;
+-fx-wrap-text : true;
 }

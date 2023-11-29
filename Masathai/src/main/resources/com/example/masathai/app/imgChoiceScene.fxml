@@ -3,17 +3,19 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="664.0" stylesheets="@../styles/quiz-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.QuizController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="664.0" stylesheets="@../styles/quiz-styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.ImgChoiceController">
    <top>
       <Pane prefHeight="94.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="timerLabel" layoutX="582.0" layoutY="14.0" prefHeight="28.0" prefWidth="57.0" text="Timer" />
+            <Label fx:id="timerLabel" layoutX="582.0" layoutY="14.0" prefHeight="28.0" prefWidth="57.0" style="-fx-background-color: #2196f3; -fx-background-radius: 5px; -fx-text-fill: white; -fx-padding: 10px;" text="Timer" />
             <Label fx:id="nameLabel" layoutX="27.0" layoutY="19.0" text="Label" />
             <Label fx:id="genderLabel" layoutX="27.0" layoutY="42.0" text="Label" />
             <ImageView fx:id="flagImageView" fitHeight="20.0" fitWidth="27.0" layoutX="82.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
@@ -24,18 +26,18 @@
    <bottom>
       <Pane prefHeight="70.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="nextButton" layoutX="350.0" layoutY="19.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="37.0" prefWidth="99.0" text="Next">
+            <Button fx:id="nextButton" layoutX="350.0" layoutY="19.0" mnemonicParsing="false" onAction="#onNextButtonClicked" prefHeight="37.0" prefWidth="99.0" text="Next">
                <styleClass>
                   <String fx:value="prev-next-btn" />
                   <String fx:value="next-btn" />
                </styleClass>
             </Button>
-            <Label fx:id="qNoLabel" layoutX="36.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="148.0">
+            <Label fx:id="qNoLabel" layoutX="36.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="148.0" text="Question 21 of 22">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="previousButton" layoutX="225.0" layoutY="19.0" mnemonicParsing="false" onAction="#previousQuestion" prefHeight="37.0" prefWidth="106.0" text="Previous">
+            <Button fx:id="previousButton" layoutX="225.0" layoutY="19.0" mnemonicParsing="false" onAction="#onPreviousButtonClicked" prefHeight="37.0" prefWidth="106.0" text="Previous">
                <styleClass>
                   <String fx:value="prev-next-btn" />
                   <String fx:value="previousButton" />
@@ -60,14 +62,36 @@
             </Label>
             <HBox fx:id="questionBox" layoutX="3.0" layoutY="5.0" prefHeight="69.0" prefWidth="657.0">
                <children>
-                  <Label fx:id="questionLabel" prefHeight="70.0" prefWidth="664.0" text="Which " textFill="WHITE">
+                  <Label fx:id="questionLabel" prefHeight="70.0" prefWidth="664.0" style="-fx-padding: 5px 10px 5px 10px;" text="21. Which building is the symbol of Singapore's economic success?" textFill="WHITE">
                      <font>
                         <Font name="Rockwell" size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <ImageView fitHeight="110.0" fitWidth="157.0" layoutX="109.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="161.0" fitWidth="255.0" layoutX="75.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imageChoiceQuestion/operahouse.jpeg" />
+               </image></ImageView>
+            <ImageView fitHeight="167.0" fitWidth="277.0" layoutX="366.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imageChoiceQuestion/burjKhalifa.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="167.0" fitWidth="562.0" layoutX="75.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imageChoiceQuestion/shanghaiTower.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="165.0" fitWidth="267.0" layoutX="366.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/imageChoiceQuestion/petronas.jpeg" />
+               </image>
+            </ImageView>
+            <RadioButton fx:id="choiceA" layoutX="20.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleChoice" text="A." />
+            <RadioButton fx:id="choiceB" layoutX="312.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleChoice" prefHeight="30.0" prefWidth="39.0" text="B." />
+            <RadioButton fx:id="choiceC" layoutX="20.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleChoice" text="C." />
+            <RadioButton fx:id="choiceD" layoutX="312.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleChoice" text="D." />
          </children>
       </Pane>
    </center>

@@ -99,11 +99,16 @@ public class RegisterController implements Initializable {
             showAlert("Error", "Passwords do not match");
             return;
         }
+        if(!email.contains("@")){
+            showAlert("Invalid Email", "Please enter a valid email format");
+            return;
+        }
 
         boolean registrationSuccessful = saveToDatabase(firstName, middleName, lastName, email,
                 passport, password, dob, nationality, gender);
 
         if (registrationSuccessful) {
+            showAlert("Registration Successful", "You have successfully registered");
             switchToLoginPage(event);
         } else {
             showAlert("Error", "Registration failed. Please try again.");
