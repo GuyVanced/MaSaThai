@@ -13,7 +13,10 @@
    <top>
       <Pane prefHeight="94.0" prefWidth="664.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="timerLabel" layoutX="582.0" layoutY="14.0" prefHeight="28.0" prefWidth="57.0" text="Timer" />
+            <Label fx:id="timerLabel" layoutX="541.0" layoutY="16.0" prefHeight="39.0" prefWidth="81.0" style="-fx-background-color: #2196F3; -fx-padding: 15px; -fx-text-fill: white; -fx-background-radius: 20px;" text="Timer">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             <Label fx:id="nameLabel" layoutX="27.0" layoutY="19.0" text="Label" />
             <Label fx:id="genderLabel" layoutX="27.0" layoutY="42.0" text="Label" />
             <ImageView fx:id="flagImageView" fitHeight="20.0" fitWidth="27.0" layoutX="82.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.AllResultController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masathai.Controllers.AllResultController">
    <children>
-      <Pane layoutY="-77.0" prefHeight="200.0" prefWidth="603.0" style="-fx-background-color: #2196f3;">
+      <Pane layoutY="-77.0" prefHeight="200.0" prefWidth="677.0" style="-fx-background-color: #2196f3;">
          <children>
             <Label layoutX="114.0" layoutY="112.0" text="See All Results" textFill="WHITE">
                <font>
@@ -17,12 +17,48 @@
                </font>
             </Label>
          </children></Pane>
-      <Label layoutX="93.0" layoutY="156.0" text="Seelct Candidate : ">
+      <Pane layoutY="123.0" prefHeight="434.0" prefWidth="311.0">
+         <children>
+            <Label layoutX="40.0" layoutY="53.0" text="Seelct Candidate  ">
+               <font>
+                  <Font name="Gill Sans Ultra Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="seeResultButton" layoutX="96.0" layoutY="217.0" mnemonicParsing="false" onAction="#onSeeResultButtonClicked" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #2196F3; -fx-background-radius: 20px;" text="See Result" />
+            <ComboBox fx:id="dropDownMenu" layoutX="81.0" layoutY="121.0" prefWidth="150.0" promptText="Select Candidate" />
+         </children>
+      </Pane>
+      <Label layoutX="402.0" layoutY="134.0" prefHeight="39.0" prefWidth="173.0" text="Results">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="21.0" />
+            <Font name="Gill Sans Ultra Bold" size="31.0" />
          </font>
       </Label>
-      <Button fx:id="seeResultButton" layoutX="246.0" layoutY="246.0" mnemonicParsing="false" onAction="#onSeeResultButtonClicked" prefHeight="55.0" prefWidth="120.0" style="-fx-background-color: #2196F3; -fx-background-radius: 20px;" text="See Result" />
-      <ComboBox fx:id="dropDownMenu" layoutX="340.0" layoutY="156.0" prefWidth="150.0" promptText="Select Candidate" />
+      <Label fx:id="fullNameLabel" layoutX="395.0" layoutY="230.0" prefHeight="22.0" prefWidth="265.0" text="Full Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="nationalityLabel" layoutX="395.0" layoutY="318.0" prefHeight="22.0" prefWidth="266.0" text="Nationality">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="genderLabel" layoutX="395.0" layoutY="273.0" prefHeight="22.0" prefWidth="266.0" text="Gender">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="marksLabel" layoutX="395.0" layoutY="401.0" prefHeight="22.0" prefWidth="266.0" text="Obtained Marks">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="resultLabel" layoutX="395.0" layoutY="443.0" prefHeight="22.0" prefWidth="266.0" text="Result">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitButton" layoutX="560.0" layoutY="498.0" mnemonicParsing="false" onAction="#onExitButtonClicked" text="Exit" />
+      <Label fx:id="dobLabel" layoutX="395.0" layoutY="359.0" prefHeight="18.0" prefWidth="246.0" text="DOB " />
    </children>
 </AnchorPane>

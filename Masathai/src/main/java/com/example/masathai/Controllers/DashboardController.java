@@ -227,9 +227,7 @@ public class DashboardController {
     }
 
     private Candidate fetchCandidateDetails(String email) throws SQLException {
-        // Perform database query to fetch candidate details based on the email
-        // Example query: SELECT * FROM Candidates WHERE Email = ?
-        // Execute the query using PreparedStatement
+
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Candidates WHERE Email = ?")) {
             preparedStatement.setString(1, email);

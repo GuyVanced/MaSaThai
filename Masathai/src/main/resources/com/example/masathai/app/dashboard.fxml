@@ -35,28 +35,31 @@
       </Button>
       <Pane layoutX="295.0" layoutY="132.0" prefHeight="419.0" prefWidth="470.0">
          <children>
-            <Label layoutX="199.0" layoutY="24.0" text="Your Details" />
-            <Label fx:id="emailLabel" layoutX="82.0" layoutY="138.0" prefHeight="43.0" prefWidth="282.0" text="Label">
+            <Label layoutX="111.0" layoutY="22.0" text="Your Details">
+               <font>
+                  <Font name="Gill Sans Ultra Bold" size="36.0" />
+               </font></Label>
+            <Label fx:id="emailLabel" layoutX="115.0" layoutY="138.0" prefHeight="43.0" prefWidth="282.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="nameLabel" layoutX="82.0" layoutY="89.0" prefHeight="43.0" prefWidth="294.0" text="Label">
+            <Label fx:id="nameLabel" layoutX="115.0" layoutY="89.0" prefHeight="43.0" prefWidth="294.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="genderLabel" layoutX="82.0" layoutY="244.0" prefHeight="37.0" prefWidth="282.0" text="Label">
+            <Label fx:id="genderLabel" layoutX="115.0" layoutY="244.0" prefHeight="37.0" prefWidth="282.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="nationalityLabel" layoutX="82.0" layoutY="187.0" prefHeight="54.0" prefWidth="301.0" text="Label">
+            <Label fx:id="nationalityLabel" layoutX="115.0" layoutY="187.0" prefHeight="54.0" prefWidth="301.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="dobLabel" layoutX="82.0" layoutY="291.0" prefHeight="43.0" prefWidth="282.0" text="Label">
+            <Label fx:id="dobLabel" layoutX="115.0" layoutY="291.0" prefHeight="43.0" prefWidth="282.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>

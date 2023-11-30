@@ -18,11 +18,21 @@ public class Candidate {
         this.c_id = c_id;
 
     }
+    public Candidate(String fullName, String gender, String nationality, Date dob ){
+        this.fullName = fullName;
+        this.gender = gender;
+        this.nationality = nationality;
+        this.dob = dob;
+    }
+
+
 
 
     public int getC_id() {
         return c_id;
     }
+
+
 
     public void setC_id(int c_id) {
         this.c_id = c_id;
